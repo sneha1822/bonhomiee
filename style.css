@@ -1,0 +1,211 @@
+/* ==== Base Styles & Resets ==== */
+/* ===== BASE STYLES & RESETS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+:root {
+  font-size: 62.5%; /* 1rem = 10px */
+  --primary: #00afef; /* Primary blue */
+  --text: #2d3748; /* Dark text */
+  --light-bg: #f8fafc; /* Light background */
+  --border: #e2e8f0; /* Border color */
+  --radius: 0.8rem; /* Border radius */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--light-bg);
+  padding: 2rem;
+  font-size: 1.6rem; /* 16px base */
+}
+
+/* ===== FORM CONTAINER ===== */
+.form-container {
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ===== FORM SECTIONS ===== */
+.form-section {
+  background: white;
+  border-radius: var(--radius);
+  padding: 2.4rem;
+  margin-bottom: 2.4rem;
+  box-shadow: 0 0.2rem 0.4rem rgba(0,0,0,0.05);
+}
+
+legend {
+  font-weight: 600;
+  padding: 0 1rem;
+  font-size: 1.8rem;
+}
+
+.form-group {
+  margin-bottom: 1.6rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 500;
+}
+
+/* ===== INPUT STYLES ===== */
+input:not([type="radio"]),
+select,
+textarea {
+  width: 100%;
+  padding: 1.2rem 1.6rem;
+  border: 0.1rem solid var(--border);
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  transition: border 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Radio buttons */
+.radio-group {
+  display: flex;
+  gap: 1.6rem;
+  margin-top: 0.8rem;
+}
+
+input[type="radio"] {
+  margin-right: 0.8rem;
+  accent-color: var(--primary);
+}
+
+/* ===== DESTINATION CARDS ===== */
+.destination-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.6rem;
+}
+
+.destination-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.destination-card:hover {
+  transform: translateY(-0.3rem);
+}
+
+.destination-card img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.destination-card span {
+  display: block;
+  padding: 1.2rem;
+  text-align: center;
+  background: white;
+  font-weight: 500;
+}
+
+/* ===== ITINERARY SECTION ===== */
+.itinerary-card {
+  background: white;
+  border-left: 0.4rem solid var(--primary);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.itinerary-card h3 {
+  color: var(--primary);
+  margin-bottom: 1.2rem;
+}
+
+.itinerary-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* ===== BUTTON STYLES ===== */
+.submit-btn {
+  width: 100%;
+  padding: 1.4rem;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.submit-btn:hover {
+  background: #0095d6;
+}
+
+/* ===== RESPONSIVE ADJUSTMENTS ===== */
+@media (min-width: 768px) {
+  .destination-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .radio-group {
+    gap: 2.4rem;
+  }
+}
+
+
+.delete-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: none;
+  background: #ff4757;
+  color: white;
+  border-radius: 50%;
+  font-size: 1.6rem;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Card header positioning */
+.card-header {
+  position: relative;
+  padding-right: 3rem; /* Space for delete button */
+}
+
+/* Itinerary card adjustments */
+.itinerary-card {
+  position: relative; /* For absolute positioning of delete btn */
+  padding: 1.6rem;
+}

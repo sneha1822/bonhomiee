@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Design your trip</title>
+</head>
+<body>
+     <div class="form-container">
+        <h1>Design Your Trip to Greece</h1>
+        <form 
+        id="tripForm" 
+        action="https://formsubmit.co/bookings@bonhomiee.com" method="POST">
+            <!-- Customer Details Section -->
+            <fieldset class="form-section">
+                <legend>Customer Details</legend>
+                
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">Full Name*</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="John Doe" 
+                        required
+                        minlength="2">
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">Email*</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="your.email@example.com"
+                        required
+                        >
+                </div>
+
+                <!-- WhatsApp No -->
+                <div class="form-group">
+                    <label for="whatsapp">WhatsApp Number*</label>
+                    <input 
+                        type="tel" 
+                        id="whatsapp" 
+                        name="whatsapp" 
+                        placeholder="e.g., +1234567890"
+                        required
+                        pattern="^\+[0-9]{10,15}$">
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section">
+                <legend>Choose Your Destinations</legend>
+                <div class="destination-grid">
+                    <!-- Athens -->
+                    <div class="destination-card" data-destination="Athens">
+                        <img src="https://www.tripsavvy.com/thmb/MaDZG-s3Kt9gCYMecT2BwJWAzpQ=/3865x2576/filters:fill(auto,1)/old-historic-ruins-against-sky-at-acropolis-731860087-597bbb2868e1a20011748f54.jpg" alt="Athens">
+                        <span>Athens</span>
+                    </div>
+                    
+                    <!-- Santorini -->
+                    <div class="destination-card" data-destination="Santorini">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.f9LB9isoEgtVeDy8wXMVWwHaE3&pid=Api&P=0&h=180" alt="Santorini">
+                        <span>Santorini</span>
+                    </div>
+                    
+                    <!-- Mykonos -->
+                    <div class="destination-card" data-destination="Mykonos">
+                        <img src="https://www.kivotoshotels.com/wp-content/uploads/2021/10/mykonos-sunset-1920x1281.jpg" alt="Mykonos">
+                        <span>Mykonos</span>
+                    </div>
+
+                     <div class="destination-card" data-destination="Rhodes">
+                        <img src="https://www.greeka.com/photos/dodecanese/rhodes/hero/rhodes-island-1920.jpg" alt="Mykonos">
+                        <span>Rhodes</span>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section" id="#flight-section">
+                <legend>Flight Details</legend>
+                
+                <!-- Departure City -->
+                <div class="form-group">
+                    <label for="departure-city">Departure City*</label>
+                    <input type="text" id="departure-city" name="departure-city" required placeholder="e.g., New York">
+                </div>
+
+                <!-- Departure Date -->
+                <div class="form-group">
+                    <label for="departure-date">Departure Date*</label>
+                    <input type="date" id="departure-date" name="departure-date" required min="">
+                </div>
+
+                <!-- Seat Preference -->
+                <div class="form-group">
+                    <label>Seat Preference*</label>
+                    <label><input type="radio" name="seat-preference" value="window" required> Window</label>
+                    <label><input type="radio" name="seat-preference" value="aisle"> Aisle</label>
+                    <label><input type="radio" name="seat-preference" value="middle"> Middle</label>
+                    <label><input type="radio" name="seat-preference" value="none" checked> No Preference</label>
+                </div>
+
+                <!-- Passenger Count -->
+                <div class="form-group">
+                    <label for="passengers">Passengers*</label>
+                    <input type="number" id="passengers" name="passengers" min="1" value="1" required>
+                </div>
+
+                <!-- Cabin Class -->
+                <div class="form-group">
+                    <label for="cabin-class">Cabin Class*</label>
+                    <select id="cabin-class" name="cabin-class" required>
+                    <option value="economy" selected>Economy</option>
+                    <option value="premium-economy">Premium Economy</option>
+                    <option value="business">Business</option>
+                    <option value="first">First Class</option>
+                    </select>
+                </div>
+
+                <!-- Meal Preference -->
+                <div class="form-group">
+                    <label for="meal-preference">Meal Preference</label>
+                    <select id="meal-preference" name="meal-preference">
+                    <option value="regular" selected>Regular</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="gluten-free">Gluten-Free</option>
+                    <option value="halal">Halal</option>
+                    </select>
+                </div>
+
+                <!-- Special Requests -->
+                <div class="form-group">
+                    <label for="special-requests">Special Requests</label>
+                    <textarea id="special-requests" name="special-requests" placeholder="e.g., wheelchair assistance"></textarea>
+                </div>
+            </fieldset>
+
+            <fieldset class="form-section" id="itinerary-section">
+                <legend>Your Trip Itinerary</legend>
+                
+                <!-- Empty State (Initial Message) -->
+                <div id="itinerary-empty" class="itinerary-empty">
+                    <p>✨ Your itinerary will appear here as you select destinations and accommodations.</p>
+                </div>
+
+                <!-- Dynamically Populated Content (Hidden Initially) -->
+                <div id="itinerary-content" class="itinerary-content">
+                    
+                </div>
+
+                <!-- Summary Row (For Totals) -->
+                <div id="itinerary-summary" class="itinerary-summary">
+                    <hr>
+                    <p><strong>Total:</strong> <span id="total-days">0</span> days, <span id="total-destinations">0</span> destinations</p>
+                </div>
+            </fieldset>
+
+            <button type="submit" class="submit-btn">Send Details</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
